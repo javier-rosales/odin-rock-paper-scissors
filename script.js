@@ -1,4 +1,3 @@
-// Get random number between a range (both parameters included)
 function getRandom(start, end) {
     return Math.round(Math.random() * (end - start)) + start
 }
@@ -19,7 +18,6 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    // Make sure the user choose a valid option
     if (!(
         playerSelection === "rock" ||
         playerSelection === "paper" ||
@@ -28,7 +26,6 @@ function playRound(playerSelection, computerSelection) {
         return null
     }
 
-    // Get result
     if (playerSelection === computerSelection) {
         return "draw"
     } else if (
@@ -42,20 +39,16 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-    // Set rounds
     let rounds = 5
 
-    // Start counters
     let winCounter = 0
     let defeatCounter = 0
     let drawCounter = 0
 
-    // Loop defined rounds
     for (let i = 1; i <= rounds; i++) {
         const playerSelection = prompt(`Round ${i}\n\nPlease choose one of the following options\n- rock\n-paper\n-scissors`).toLowerCase()
         const computerSelection = getComputerChoice()
 
-        // Compare player and computer selections
         const result = playRound(playerSelection, computerSelection)
 
         console.log(`Round ${i}:`)
@@ -78,7 +71,6 @@ function game() {
         }
     }
 
-    // Print result and final score
     if (winCounter === defeatCounter) {
         console.log("DRAW!")
     } else if (winCounter > defeatCounter) {
@@ -90,5 +82,4 @@ function game() {
     console.log(`FINAL SCORE:\n- You: ${winCounter}\n- Computer: ${defeatCounter}\n* Draw: ${drawCounter}`)
 }
 
-// Start game
 game()
