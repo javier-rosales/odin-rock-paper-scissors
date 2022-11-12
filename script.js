@@ -19,9 +19,6 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    // Make the player selection case insentitive
-    playerSelection = playerSelection.toLowerCase()
-
     // Make sure the user choose a valid option
     if (!(
         playerSelection === "rock" ||
@@ -45,41 +42,53 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
+    // Set rounds
+    let rounds = 5
+
+    // Start counters
     let winCounter = 0
     let loseCounter = 0
     let drawCounter = 0
 
-    for (let i = 1; i <= 5; i++) {
-        const playerSelection = prompt(`Round ${i}\n\nPlease choose one of the following options\n- rock\n-paper\n-scissors`)
+    // Loop defined rounds
+    for (let i = 1; i <= rounds; i++) {
+        const playerSelection = prompt(`Round ${i}\n\nPlease choose one of the following options\n- rock\n-paper\n-scissors`).toLowerCase()
         const computerSelection = getComputerChoice()
 
+        // Compare player and computer selections
         const result = playRound(playerSelection, computerSelection)
 
-        if (result !== null) {
-            console.log(`Round ${i}:`)
+        console.log(`Round ${i}:`)
 
-            if (result === "winner") {
+        switch(result) {
+            case "winner":
                 winCounter++
                 console.log(`You win! ${playerSelection} beats ${computerSelection}`)
-            } else if (result === "defeat") {
+                break
+            case "defeat":
                 loseCounter++
                 console.log(`You lose! ${playerSelection} is beaten by ${computerSelection}`)
-            } else {
+                break
+            case "draw":
                 drawCounter++
                 console.log(`Draw! You both chose ${playerSelection}`)
-            }
+                break
+            default:
+                console.log("ERROR. You probably misspelled your choice")
         }
     }
 
+    // Print result and final score
     if (winCounter === loseCounter) {
         console.log("DRAW!")
     } else if (winCounter > loseCounter) {
-        console.log("YOU WIN!")
+        console.log("VICTORY!")
     } else {
-        console.log("YOU LOSE!")
+        console.log("DEFEAT!")
     }
 
     console.log(`FINAL SCORE:\n- You: ${winCounter}\n- Computer: ${loseCounter}\n* Draw: ${drawCounter}`)
 }
 
+// Start game
 game()
