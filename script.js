@@ -68,7 +68,7 @@ function game() {
         }
     }
 
-    if (winCounter === 0 && loseCounter === 0) {
+    if (winCounter === loseCounter) {
         console.log("DRAW!")
     } else if (winCounter > loseCounter) {
         console.log("YOU WIN!")
