@@ -47,7 +47,7 @@ function game() {
 
     // Start counters
     let winCounter = 0
-    let loseCounter = 0
+    let defeatCounter = 0
     let drawCounter = 0
 
     // Loop defined rounds
@@ -66,7 +66,7 @@ function game() {
                 console.log(`You win! ${playerSelection} beats ${computerSelection}`)
                 break
             case "defeat":
-                loseCounter++
+                defeatCounter++
                 console.log(`You lose! ${playerSelection} is beaten by ${computerSelection}`)
                 break
             case "draw":
@@ -79,15 +79,15 @@ function game() {
     }
 
     // Print result and final score
-    if (winCounter === loseCounter) {
+    if (winCounter === defeatCounter) {
         console.log("DRAW!")
-    } else if (winCounter > loseCounter) {
+    } else if (winCounter > defeatCounter) {
         console.log("VICTORY!")
     } else {
         console.log("DEFEAT!")
     }
 
-    console.log(`FINAL SCORE:\n- You: ${winCounter}\n- Computer: ${loseCounter}\n* Draw: ${drawCounter}`)
+    console.log(`FINAL SCORE:\n- You: ${winCounter}\n- Computer: ${defeatCounter}\n* Draw: ${drawCounter}`)
 }
 
 // Start game
