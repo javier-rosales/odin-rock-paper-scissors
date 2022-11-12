@@ -28,20 +28,20 @@ function playRound(playerSelection, computerSelection) {
         playerSelection === "paper" ||
         playerSelection === "scissors"
     )) {
-        return "Please choose a valid option"
+        return null
     }
 
     // Get result
     if (playerSelection === computerSelection) {
-        return [`Draw! You both chose ${playerSelection}`, "draw"]
+        return "draw"
     } else if (
         (playerSelection === "rock" && computerSelection === "scissors") ||
         (playerSelection === "paper" && computerSelection === "rock") ||
         (playerSelection === "scissors" && computerSelection === "paper")
     ) {
-        return [`You win! ${playerSelection} beats ${computerSelection}`, "winner"]
+        return "win"
     }
-    return [`You lose! ${computerSelection} beats ${playerSelection}`, "loser"]
+    return "defeat"
 }
 
 function game() {
@@ -55,16 +55,19 @@ function game() {
 
         const result = playRound(playerSelection, computerSelection)
 
-        if (typeof result === "object") {
-            if (result[1] === "winner") {
+        if (result !== null) {
+            console.log(`Round ${i}:`)
+
+            if (result === "winner") {
                 winCounter++
-            } else if (result[1] === "loser") {
+                console.log(`You win! ${playerSelection} beats ${computerSelection}`)
+            } else if (result === "defeat") {
                 loseCounter++
+                console.log(`You lose! ${playerSelection} is beaten by ${computerSelection}`)
             } else {
                 drawCounter++
+                console.log(`Draw! You both chose ${playerSelection}`)
             }
-    
-            console.log(`Round ${i} result: ${result[0]}`)
         }
     }
 
