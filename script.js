@@ -1,14 +1,19 @@
-function getComputerChoice() {
-    random = Math.floor(Math.random() * 3)
+// Get random number between a range (both parameters included)
+function getRandom(start, end) {
+    return Math.round(Math.random() * (end - start)) + start
+}
 
-    switch(random) {
-        case 0:
+function getComputerChoice() {
+    const randomIndex = getRandom(1, 3)
+
+    switch(randomIndex) {
+        case 1:
             return "rock"
             break
-        case 1:
+        case 2:
             return "paper"
             break
-        case 2:
+        case 3:
             return "scissors"
     }
 }
