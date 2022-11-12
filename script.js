@@ -50,7 +50,7 @@ function game() {
     let drawCounter = 0
 
     for (let i = 1; i <= 5; i++) {
-        const playerSelection = prompt(`Round ${i}:\n(Please enter one of the following options: rock, paper, scissors)`)
+        const playerSelection = prompt(`Round ${i}\n\nPlease choose one of the following options\n- rock\n-paper\n-scissors`)
         const computerSelection = getComputerChoice()
 
         const result = playRound(playerSelection, computerSelection)
