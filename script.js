@@ -54,7 +54,7 @@ function game() {
         console.log(`Round ${i}:`)
 
         switch(result) {
-            case "winner":
+            case "win":
                 winCounter++
                 console.log(`You win! ${playerSelection} beats ${computerSelection}`)
                 break
