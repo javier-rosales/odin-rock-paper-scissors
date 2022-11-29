@@ -18,8 +18,8 @@ body {
 }
 
 .title {
-    padding: 30px 0;
-    font-size: 3.2rem;
+    padding: 40px 0;
+    font-size: 3rem;
     color: rgb(236, 179, 101);
     text-align: center;
 }
@@ -38,7 +38,7 @@ body {
 
 .vs-text {
     font-family: "VT323", monospace;
-    font-size: 4rem;
+    font-size: 3.5rem;
 }
 
 .score__title {
@@ -59,14 +59,14 @@ body {
 }
 
 .score {
-    margin: 50px auto;
-    padding: 20px 0;
+    margin: 30px auto;
+    padding: 12px 0;
     border-radius: 10px;
     background-color: rgb(6, 70, 99);
 }
 
 .game {
-    margin-bottom: 70px;
+    margin-bottom: 50px;
     align-items: center;
 }
 
@@ -82,8 +82,8 @@ body {
 
 .player__img,
 .computer__img {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     object-fit: contain;
 }
 
@@ -94,8 +94,8 @@ body {
 }
 
 .choice {
-    width: 120px;
-    height: 120px;
+    width: 110px;
+    height: 110px;
     border: none;
     border-radius: 15px;
     background-color: rgb(4, 41, 58);
@@ -117,7 +117,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 70px;
-    margin-top: 180px;
+    margin-top: 50px;
     padding: 25px 0;
     font-size: 1.2rem;
 }
