@@ -37,3 +37,130 @@ function playRound(playerSelection, computerSelection) {
     }
     return "defeat"
 }
+
+const options = document.querySelectorAll(".choice")
+const playerScore = document.querySelector(".score__player")
+const computerScore = document.querySelector(".score__computer")
+const playerImage = document.querySelector(".player__img")
+const computerImage = document.querySelector(".computer__img")
+
+let playerScoreCount = 0
+let computerScoreCount = 0
+
+options.forEach(option => {
+    option.addEventListener("click", e => {
+        const playerChoice = e.currentTarget.getAttribute("data-choice")
+        const computerChoice = getComputerChoice()
+
+        playerImage.setAttribute("src", `assets/images/${playerChoice}.png`)
+        computerImage.setAttribute("src", `assets/images/${computerChoice}.png`)
+
+        const result = playRound(playerChoice, computerChoice)
+        let feedback = ""
+
+        switch(result) {
+            case "win":
+                playerScoreCount ++
+                playerScore.textContent = playerScoreCount
+                feedback = `${playerChoice} beats ${computerChoice}`
+                break
+            case "defeat":
+                computerScoreCount ++
+                computerScore.textContent = computerScoreCount
+                feedback = `${computerChoice} beats ${playerChoice}`
+                break
+            case "draw":
+                feedback = `you both chose ${playerChoice}`
+        }
+
+
+        const resultContent = document.querySelector(".result")
+        if (resultContent) {
+            updateRoundResultMessage(result, feedback)
+        } else {
+            addRoundResultMessage(result, feedback)
+        }
+    })
+})
+
+function resetGame() {
+    removeRoundResultMessage()
+
+    playerScoreCount = 0
+    computerScoreCount = 0
+    playerScore.textContent = playerScoreCount
+    computerScore.textContent = computerScoreCount
+
+    playerImage.setAttribute("src", "assets/images/player.png")
+    computerImage.setAttribute("src", "assets/images/computer.png")
+}
+
+function addRoundResultMessage(result, feedback) {
+    const resultContent = document.createElement("div")
+    resultContent.classList.add("result")
+
+    const resultMessage = document.createElement("div")
+    resultMessage.classList.add("text")
+    resultMessage.classList.add("text--center")
+    resultMessage.classList.add("text--semibold")
+
+    switch(result) {
+        case "win":
+            resultMessage.classList.add("text--green")
+            resultMessage.textContent = "You win!"
+            break
+        case "defeat":
+            resultMessage.classList.add("text--red")
+            resultMessage.textContent = "You lose!"
+            break
+        case "draw":
+            resultMessage.textContent = "Draw!"
+    }
+
+    const feedbackMessage = document.createElement("div")
+    feedbackMessage.classList.add("text")
+    feedbackMessage.classList.add("text--center")
+    feedbackMessage.classList.add("text--grey")
+    feedbackMessage.classList.add("subtext")
+    feedbackMessage.textContent = feedback
+
+    resultContent.appendChild(resultMessage)
+    resultContent.appendChild(feedbackMessage)
+
+    const main = document.querySelector("main")
+    const score = document.querySelector(".score")
+    main.insertBefore(resultContent, score)
+}
+
+function updateRoundResultMessage(result, feedback) {
+    const resultContent = document.querySelector(".result")
+    if (resultContent) {
+        const resultMessage = document.querySelector(".result :first-child")
+        const feedbackMessage = document.querySelector(".result :last-child")
+
+        resultMessage.classList.remove("text--green")
+        resultMessage.classList.remove("text--red")
+
+        switch(result) {
+            case "win":
+                resultMessage.classList.add("text--green")
+                resultMessage.textContent = "You win!"
+                break
+            case "defeat":
+                resultMessage.classList.add("text--red")
+                resultMessage.textContent = "You lose!"
+                break
+            case "draw":
+                resultMessage.textContent = "Draw!"
+        }
+
+        feedbackMessage.textContent = feedback
+    }
+}
+
+function removeRoundResultMessage() {
+    const resultContent = document.querySelector(".result")
+    if (resultContent) {
+        resultContent.parentNode.removeChild(resultContent)
+    }
+}

@@ -36,6 +36,26 @@ body {
     text-align: center;
 }
 
+.text--semibold {
+    font-weight: 500;
+}
+
+.text--green {
+    color: rgb(20, 167, 108);
+}
+
+.text--red {
+    color: rgb(247, 108, 108);
+}
+
+.text--grey {
+    color: rgb(200, 200, 200);
+}
+
+.subtext {
+    font-size: 1rem;
+}
+
 .vs-text {
     font-family: "VT323", monospace;
     font-size: 3.5rem;
@@ -45,9 +65,12 @@ body {
     font-weight: 600;
 }
 
-.score__player,
-.score__computer {
-    width: 100px;
+.result {
+    margin-top: 40px;
+}
+
+.result :first-child {
+    margin-bottom: 5px;
 }
 
 .score,
@@ -63,6 +86,11 @@ body {
     padding: 12px 0;
     border-radius: 10px;
     background-color: rgb(6, 70, 99);
+}
+
+.score__player,
+.score__computer {
+    width: 100px;
 }
 
 .game {
