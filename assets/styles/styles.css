@@ -101,7 +101,23 @@ body {
 }
 
 .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 50px;
-    padding: 20px 0;
+    padding: 25px 0;
     font-size: 1.2rem;
+}
+
+.link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: rgb(236, 179, 101);
+}
+
+.link i {
+    margin-right: 10px;
 }
