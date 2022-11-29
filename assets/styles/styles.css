@@ -4,6 +4,9 @@ html {
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     background-color: rgb(4, 28, 50);
     cursor: default;
 }
@@ -16,9 +19,13 @@ body {
 
 .title {
     padding: 30px 0;
-    font-size: 3rem;
+    font-size: 3.2rem;
     color: rgb(236, 179, 101);
     text-align: center;
+}
+
+.main {
+    flex-grow: 1;
 }
 
 .text {
@@ -31,7 +38,7 @@ body {
 
 .vs-text {
     font-family: "VT323", monospace;
-    font-size: 5rem;
+    font-size: 4rem;
 }
 
 .score__title {
@@ -91,4 +98,10 @@ body {
     width: 60%;
     height: 60%;
     object-fit: contain;
+}
+
+.footer {
+    margin-top: 50px;
+    padding: 20px 0;
+    font-size: 1.2rem;
 }
