@@ -4,36 +4,39 @@
         <meta charset="UTF-8">
         <title>Rock Paper Scissors - The Odin Project</title>
         <link rel="stylesheet" href="assets/styles/styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;600;700&family=VT323&display=swap" rel="stylesheet">
         <script src="assets/scripts/script.js" defer></script>
     </head>
     <body>
-        <h1>Rock Paper Scissors</h1>
-        <div class="text">First to 5 wins!</div>
-        <div class="score">
+        <h1 class="title">Rock Paper Scissors</h1>
+        <div class="text text--center">First to 5 wins!</div>
+        <div class="score text">
             <div class="score__player">0</div>
-            <div class="score__text">Score</div>
+            <div class="score__title">Score</div>
             <div class="score__computer">0</div>
         </div>
         <div class="game">
             <div class="player">
-                <img class="player__img" src="">
+                <img class="player__img" src="assets/images/player.png">
                 You
             </div>
-            VS
+            <div class="vs-text">VS</div>
             <div class="computer">
-                <img class="computer__img" src="">
+                <img class="computer__img" src="assets/images/computer.png">
                 Computer
             </div>
         </div>
         <div class="choices">
             <button class="choice">
-                <img class="choice__img" src="">
+                <img class="choice__img" src="assets/images/rock.png">
             </button>
             <button class="choice">
-                <img class="choice__img" src="">
+                <img class="choice__img" src="assets/images/paper.png">
             </button>
             <button class="choice">
-                <img class="choice__img" src="">
+                <img class="choice__img" src="assets/images/scissors.png">
             </button>
         </div>
     </body>
