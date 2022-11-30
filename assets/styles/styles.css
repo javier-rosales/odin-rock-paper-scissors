@@ -167,10 +167,71 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 25px 50px;
+    gap: 15px 50px;
     width: 80%;
 }
 
 .attribution {
     font-size: .9rem;
+}
+
+.active {
+    display: block;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    min-width: 250px;
+    width: 20%;
+    padding: 50px 0;
+    background-color: rgb(4, 28, 50);
+    border-radius: 10px;
+}
+
+.modal-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.restart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    background-color: rgb(4, 41, 58);
+    border-radius: 15px;
+}
+
+.restart:hover {
+    background-color: rgb(39, 76, 93);
+}
+
+.restart__img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .8);
+}
+
+.disable {
+    display: none;
 }

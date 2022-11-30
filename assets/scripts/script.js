@@ -80,10 +80,16 @@ options.forEach(option => {
         } else {
             addRoundResultMessage(result, feedback)
         }
+
+        if (playerScoreCount === 5) {
+            showModal(result)
+        } else if (computerScoreCount === 5) {
+            showModal(result)
+        }
     })
 })
 
-function resetGame() {
+function restartGame() {
     removeRoundResultMessage()
 
     playerScoreCount = 0
@@ -163,4 +169,41 @@ function removeRoundResultMessage() {
     if (resultContent) {
         resultContent.parentNode.removeChild(resultContent)
     }
+}
+
+const modal = document.querySelector(".modal")
+const modalTitle = document.querySelector(".modal-title")
+const restartGameButton = document.querySelector(".restart")
+const overlay = document.querySelector(".overlay")
+
+restartGameButton.addEventListener("click", () => {
+    restartGame()
+    closeModal()
+})
+
+function showModal(result) {
+    modalTitle.classList.remove("text--green")
+    modalTitle.classList.remove("text--red")
+
+    if (result === "win") {
+        modalTitle.classList.add("text--green")
+        modalTitle.textContent = "VICTORY!"
+    } else {
+        modalTitle.classList.add("text--red")
+        modalTitle.textContent = "DEFEAT!"
+    }
+
+    modal.classList.remove("disable")
+    overlay.classList.remove("disable")
+    
+    modal.classList.add("active")
+    overlay.classList.add("active")
+}
+
+function closeModal() {
+    modal.classList.remove("active")
+    overlay.classList.remove("active")
+    
+    modal.classList.add("disable")
+    overlay.classList.add("disable")
 }
